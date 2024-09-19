@@ -1,5 +1,5 @@
 # Company-Interview-Questions
-Morgan Stankley
+Morgan Stanley
 
 Amazon
 
