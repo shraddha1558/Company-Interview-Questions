@@ -4,55 +4,31 @@
 #include<bits/stdc++.h>
 using namespace std;
 class solution {
-public:
-    vector<int> FindDuplicates(vector<int>& nums) {
-        vector<int> ans;
-        for (int i = 0; i < nums.size(); ++i) {
-            while (nums[i] != nums[nums[i] - 1]) {
-                swap(nums[i], nums[nums[i] - 1]);
+    public:
+    vector<int> FindDuplicates(vector<int> VectorArray){
+        unordered_map<int,int> Freq;
+        vector<int> duplicates;
+        for(int temp: VectorArray){
+            Freq[temp]++;
+        }
+        for(auto it : Freq){
+            if(it.second>1){
+                duplicates.push_back(it.first);
             }
         }
-        for (int i = 0; i < nums.size(); ++i) {
-            if (nums[i] != i + 1 && (ans.empty() || ans.back() != nums[i])) {
-                ans.push_back(nums[i]);
-            }
-        }
-        if (ans.empty()) {
-            return {-1};
-        }
-        return ans;
+        if (duplicates.empty())
+        return {-1};
+        sort(duplicates.begin(),duplicates.end());
+        return duplicates;
     }
 };
-//TC: O(N) SC: O(1)
+//TC: O(NlogN) SC: O(N)
 int main(){
     solution s;
-    vector <int> v={1,4,4,3,2,2,5,5,5,8,8};
+    vector <int> v={0,3,1,2,3,3,3,4,2};
     vector <int> ans=s.FindDuplicates(v);
     for(int i: ans){
     cout<<i<<" ";
     }
     cout<<endl;
 }
-
-//Approach 2
-// class solution {
-//     public:
-//     vector<int> FindDuplicates(vector<int> VectorArray){
-//         unordered_map<int,int> Freq;
-//         vector<int> duplicates;
-//         for(int temp: VectorArray){
-//             Freq[temp]++;
-//         }
-//         for(auto it : Freq){
-//             if(it.second>1){
-//                 duplicates.push_back(it.first);
-//             }
-//         }
-//         if (duplicates.empty())
-//         return {-1};
-//         sort(duplicates.begin(),duplicates.end());
-//         return duplicates;
-//     }
-// };
-//TC: O(nlogn)
-//SC: O(n)
