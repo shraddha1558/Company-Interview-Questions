@@ -6,7 +6,7 @@ class Solution {
   public:
     int missingNumber(int n, vector<int>& arr) 
     {
-        for(int i = 1; i<=n; i++)
+        for(int i = 1; i<n; i++)
         {
              int found = 0;
              for(int j = 0; j<n-1; j++)
@@ -21,14 +21,14 @@ class Solution {
              {
                  return i;
              }
-         }
-    
+        }
+        return -1;
     }
 };
 int main(){
     Solution sol;
     int n=5;
-    vector<int> arr={1,2,3,4,5};
+    vector<int> arr={1,2,4,5};
     int missingElement= sol.missingNumber(n,arr);
-    cout<<"Missing Element is "<< missingElement;
+    cout<<"Missing Element is "<< missingElement<<endl;
 }
