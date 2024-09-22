@@ -1,48 +1,48 @@
 // Given an unsorted array of size n. Array elements are in the range of 1 to n. 
 // One number from set {1, 2, …n} is missing and one number occurs twice in the array. 
 // Find these two numbers.
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-class solution{
+
+class Solution {
     private:
-    vector<bool> vectvisit(n+1,false);
-    int repeating= -1;
-    int missing =-1;
-    void visited(vector<int>&arr){
-        int n=arr.size();
-        for(int i=0; i<n;i++){
-        if(!vectvisit[arr[i]]){
-            vectvisit[arr[i]]= true;
-    }
+        vector<bool> vectvisit;
+        int repeating = -1;
+        int missing = -1;
+    
     public:
-    }
-    int MissingElement(vector<int>& arr){
-    int n=arr.size();
-    for(int i=1; i<=n;i++){
-        if(!vectvisit[i]){
-            missing =i;
-            break;
+        Solution(int n) : vectvisit(n + 1, false) {}
+        void visited(vector<int>& arr) {
+            int n = arr.size();
+            for (int i = 0; i < n; i++) {
+                if (vectvisit[arr[i]]) {
+                    repeating = arr[i];
+                } else {
+                    vectvisit[arr[i]] = true;
+                }
+            }
         }
-    }
-    return missing;
-}
-int RepeatElement(vector<int>& arr){
-    int n=arr.size();
-    for(int i=1; i<=n;i++){
-        if(vectvisit[arr[i]]){
-            repeating= arr[i];
+        int MissingElement() {
+            for (int i = 1; i < vectvisit.size(); i++) {
+                if (!vectvisit[i]) {
+                    missing = i;
+                    break;
+                }
+            }
+            return missing;
         }
-        else
-        return -1;
-    }
-    return repeating;
-}
+        int RepeatElement() {
+            return repeating;
+        }
 };
 
-int main(){
-    solution s;
-    vector<int> arr={1,3,4,5,5};
-    cout<<s.RepeatElement(arr)<<endl;
-    cout<<s.MissingElement(arr)<<endl;
+int main() {
+    vector<int> arr = {1, 3, 4, 5, 5}; 
+    int n = arr.size();
+    Solution s(n);
+    s.visited(arr);
+    cout << "Repeated Element: " << s.RepeatElement() << endl;
+    cout << "Missing Element: " << s.MissingElement() << endl;
+    
     return 0;
 }
