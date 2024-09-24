@@ -33,6 +33,7 @@ class solution {
         return ans;
         }
 };
+// TC: O(NlogN) || SC: O(1)
 int main(){
     solution s;
     vector <int> dep={1200,1240,1130};
