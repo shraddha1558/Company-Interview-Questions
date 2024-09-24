@@ -20,10 +20,9 @@ class solution{
         return maxi;
     }
 };
+// TC: O(N) || SC: O(1)
 int main(){
     solution s;
     vector<int> VectorArray= {-1,-2,4,3,-2};
     cout<<s.MaxSubArraySum(VectorArray)<<endl;
 }
-// TC: O(N)
-// SC: O(1)
