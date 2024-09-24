@@ -19,8 +19,7 @@ class solution {
             return -1;
     }
 };
-//TC : O(N) 
-//SC : O(N)
+// TC: O(N) || SC: O(N)
 int main(){
     solution s;
     vector<int> arr={1,2,2,2,3,4};
