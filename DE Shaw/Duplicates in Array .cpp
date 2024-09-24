@@ -22,7 +22,7 @@ class solution {
         return duplicates;
     }
 };
-//TC: O(NlogN) SC: O(N)
+//TC: O(NlogN) || SC: O(N)
 int main(){
     solution s;
     vector <int> v={0,3,1,2,3,3,3,4,2};
