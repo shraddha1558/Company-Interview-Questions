@@ -67,7 +67,7 @@ int main(){
     }
 }
 
- // create hard coded tree
+    // Tree Representation
     //       1
     //    
     //    2     3
