@@ -25,6 +25,7 @@ class Solution {
         return -1;
     }
 };
+//TC : O(N)
 int main(){
     Solution sol;
     int n=5;
