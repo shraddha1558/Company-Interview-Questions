@@ -20,7 +20,7 @@ class solution {
     return maxProd;
     }
 };
-// TC: O(N) SC: O(1)
+// TC: O(N) || SC: O(1)
 int main(){
     vector<int> v={1,-2,-3,-7,4};
     solution s;
